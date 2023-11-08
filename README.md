@@ -26,8 +26,6 @@ Jadi, dalam rangka memutuskan antara Stateless dan Stateful widget, Anda harus m
 
 **2. Sebutkan seluruh widget yang kamu gunakan untuk menyelesaikan tugas ini dan jelaskan fungsinya masing-masing.**
 
-### Penjelasan Widget
-
 Dalam kode `menu.dart`, kami menggunakan berbagai widget untuk mengatur tampilan dan perilaku aplikasi. Berikut adalah daftar widget yang digunakan dan penjelasan singkat tentang fungsinya:
 
 1. **Scaffold**: Widget ini adalah kerangka dasar untuk mengatur tampilan aplikasi Flutter. Ini mencakup AppBar, body, dan berbagai fitur lainnya.
@@ -50,4 +48,171 @@ Dalam kode `menu.dart`, kami menggunakan berbagai widget untuk mengatur tampilan
 
 Setiap widget memiliki peran dan fungsinya masing-masing dalam mengatur tampilan dan perilaku tampilan aplikasi. Dalam kode ini, mereka digunakan untuk membuat tampilan beranda (home) yang menampilkan daftar item toko dengan berbagai tindakan yang dapat dilakukan oleh pengguna saat item tersebut diklik.
 
-3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+**3. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)**
+
+__PERTAMA MEMBUAT DIREKTORI BARU UNTUK MENYIMPAN PROJECT FLUTTER__
+- Jalankan command dibawah ini di dalam Command Prompt untuk membuat flutter project
+```
+flutter create <APP_NAME>
+cd <APP_NAME>
+```
+sebelumnya pastikan sudah memasuki ke direktori yang ingin disimpan project flutter.
+
+__KEDUA RAPIKAN STRUKTUR PROJEK__
+- Setelah membuat flutter project di direktori lokal, buka VSC atau IDE pilihan kamu dan menambahkan kode dibawah pada file baru bernama `menu.dart` pada direktori `flutter_project/lib`.
+    ```
+    import 'package:flutter/material.dart';
+    ```
+- Pada direktori yang sama dalam file main.dart, pindahkan (cut) kode baris ke-39 hingga akhir yang berisi kedua class di bawah ini ke file `menu.dart`.
+```
+class MyHomePage ... {
+    ...
+}
+
+class _MyHomePageState ... {
+    ...
+}
+```
+- Untuk mengoreksi error pada file `main.dart` tambahkan kode dibawah. 
+```
+import 'package:flutter_project/menu.dart';
+```
+
+__KETIGA MEMBUAT WIDGET SEDERHANA__
+- Lanjut dengan mengubah sifat widget halaman menu menjadi stateless dengan menghapus `MyHomePage(title: 'Flutter Demo Home Page')` pada file `main.dart`, sehingga menjadi.
+```
+MyHomePage()
+```
+- Pada file menu.dart, kamu akan mengubah sifat widget halaman dari stateful menjadi stateless. Lakukan perubahan pada bagian `({super.key, required this.title})` menjadi `({Key? key}) : super(key: key);`. Hapus final String title; sampai bawah serta tambahkan Widget build sehingga kode terlihat seperti di bawah.
+```
+class MyHomePage extends StatelessWidget {
+    MyHomePage({Key? key}) : super(key: key);
+
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+            ...
+        );
+    }
+}
+```
+Jangan lupa untuk hapus fungsi State yang ada dibawah bagian stateless widget ini.
+- Lanjut dengan menambahkan teks dan card untuk memperlihatkan barang yang dijual.
+```
+class ShopItem {
+  final String name;
+  final IconData icon;
+  final Color color;
+
+  ShopItem(this.name, this.icon, this.color);
+}
+```
+- Lalu dibawah kode `MyHomePage({Key? key}) : super(key: key);`, kamu dapat menambahkan barang-barang yang dijual (nama, harga, dan icon barang tersebut).
+```
+final List<ShopItem> items = [
+    ShopItem("Lihat Item", Icons.checklist, Colors.blue),
+    ShopItem("Tambah Item", Icons.add_shopping_cart, Colors.green),
+    ShopItem("Logout", Icons.logout, Colors.red),
+];
+```
+- Tambahkan kode dibawah kedalam Widget build.
+```
+return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Shopping List',
+        ),
+      ),
+      body: SingleChildScrollView(
+        // Widget wrapper yang dapat discroll
+        child: Padding(
+          padding: const EdgeInsets.all(10.0), // Set padding dari halaman
+          child: Column(
+            // Widget untuk menampilkan children secara vertikal
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
+                child: Text(
+                  'Grand Shop', // Text yang menandakan toko
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              // Grid layout
+              GridView.count(
+                // Container pada card kita.
+                primary: true,
+                padding: const EdgeInsets.all(20),
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: 3,
+                shrinkWrap: true,
+                children: items.map((ShopItem item) {
+                  // Iterasi untuk setiap item
+                  return ShopCard(item);
+                }).toList(),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+```
+- dan terakhir membuat widget stateless baru untuk menampilkan card.
+```
+class ShopCard extends StatelessWidget {
+  final ShopItem item;
+
+  const ShopCard(this.item, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: item.color, // Set the background color based on the ShopItem's color
+      child: InkWell(
+        // Area responsive terhadap sentuhan
+        onTap: () {
+          // Memunculkan SnackBar ketika diklik
+          ScaffoldMessenger.of(context)
+            ..hideCurrentSnackBar()
+            ..showSnackBar(SnackBar(
+                content: Text("Kamu telah menekan tombol ${item.name}!")));
+        },
+        child: Container(
+          // Container untuk menyimpan Icon dan Text
+          padding: const EdgeInsets.all(8),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  item.icon,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+                const Padding(padding: EdgeInsets.all(3)),
+                Text(
+                  item.name,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+__TERAKHIR__
+- Lakukan add, commit dan push untuk memperbarui repositori GitHub.
+```bash
+git add .
+git commit -m "<pesan_commit>"
+git push -u origin <branch_utama>
+```
