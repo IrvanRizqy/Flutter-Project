@@ -4,7 +4,8 @@
 **NPM:** 2206083514  
 **Kelas:** PBP A
 
-## Tugas 7
+<details>
+<summary><strong>Tugas 7</strong></summary>
 
 **1. Apa perbedaan utama antara stateless dan stateful widget dalam konteks pengembangan aplikasi Flutter?**
 
@@ -216,3 +217,474 @@ git add .
 git commit -m "<pesan_commit>"
 git push -u origin <branch_utama>
 ```
+</details>
+
+<details>
+<summary><strong>Tugas 8</strong></summary>
+
+**1. Jelaskan perbedaan antara Navigator.push() dan Navigator.pushReplacement(), disertai dengan contoh mengenai penggunaan kedua metode tersebut yang tepat!**
+
+Di dalam Flutter, Navigator.push() dan Navigator.pushReplacement() merupakan dua metode yang digunakan untuk melakukan transisi antara berbagai layar (screens) dalam aplikasi. Berikut adalah perbedaan antara keduanya:
+
+1. **Navigator.push()**:
+- Metode ini digunakan untuk menambahkan layar baru ke dalam tumpukan (stack) navigasi.
+- Setelah menggunakan Navigator.push(), pengguna dapat kembali ke layar sebelumnya dengan menekan tombol "Back" atau menggunakan fungsi `Navigator.pop()`.
+Contoh penggunaan `Navigator.push()`:
+
+```
+// Import modul flutter
+import 'package:flutter/material.dart';
+
+// Fungsi untuk membuat layar baru dan menavigasikannya
+void navigateToSecondScreen(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => SecondScreen()),
+  );
+}
+
+// Layar pertama
+class FirstScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('First Screen')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            // Panggil fungsi navigateToSecondScreen untuk menampilkan layar kedua
+            navigateToSecondScreen(context);
+          },
+          child: Text('Go to Second Screen'),
+        ),
+      ),
+    );
+  }
+}
+
+// Layar kedua
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Second Screen')),
+      body: Center(
+        child: Text('This is the Second Screen'),
+      ),
+    );
+  }
+}
+```
+
+2. **Navigator.pushReplacement()**:
+
+- Metode ini juga digunakan untuk menambahkan layar baru ke dalam tumpukan navigasi.
+- Namun, perbedaannya adalah bahwa setelah menggunakan Navigator.pushReplacement(), layar sebelumnya dihapus dari tumpukan sehingga pengguna tidak dapat kembali ke layar tersebut.
+Contoh penggunaan `Navigator.pushReplacement()`:
+
+```
+// Fungsi untuk membuat layar baru dan menggantikan layar saat ini
+void navigateToThirdScreen(BuildContext context) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => ThirdScreen()),
+  );
+}
+
+// ...
+
+// Pada saat tombol ditekan, layar ketiga akan ditampilkan dan menggantikan layar kedua
+ElevatedButton(
+  onPressed: () {
+    navigateToThirdScreen(context);
+  },
+  child: Text('Go to Third Screen'),
+);
+```
+
+Dalam contoh di atas, setelah pengguna menekan tombol untuk pindah ke layar ketiga, layar kedua akan dihapus dari tumpukan dan digantikan oleh layar ketiga menggunakan `Navigator.pushReplacement()`.
+
+**2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!**
+
+1. **Container**
+- **Deskripsi**: Container adalah widget yang dapat digunakan untuk mengatur tata letak dan dekorasi dari widget di dalamnya.
+- **Konteks Penggunaan**: Cocok digunakan untuk mengelola tata letak sederhana, seperti mengatur padding, margin, dan dekorasi untuk widget di dalamnya.
+
+2. **Row dan Column**
+- **Deskripsi**: Row dan Column digunakan untuk mengatur widget secara horizontal (Row) atau vertikal (Column).
+- **Konteks Penggunaan**: Berguna untuk menyusun widget secara berurutan, baik secara horizontal maupun vertikal.
+
+3. **ListView**
+- **Deskripsi**: ListView adalah widget yang digunakan untuk menampilkan daftar item secara terus menerus atau dalam bentuk daftar gulir.
+- **Konteks Penggunaan**: Cocok untuk menampilkan daftar item, seperti daftar kontak, berita, atau item dalam aplikasi.
+
+4. **Stack**
+- **Deskripsi**: Stack adalah widget yang digunakan untuk menempatkan widget di atas satu sama lain.
+- **Konteks Penggunaan**: Berguna ketika Anda ingin menumpuk widget, seperti menempatkan teks di atas gambar atau menyusun elemen-elemen tumpuk lainnya.
+
+5. **Expanded dan Flexible**
+**Deskripsi**: Expanded dan Flexible digunakan untuk memberikan widget ruang tambahan sesuai dengan kebutuhan.
+**Konteks Penggunaan**: Cocok digunakan dalam Row atau Column untuk memberikan proporsi ruang yang berbeda kepada widget di dalamnya.
+
+6. **GridView**
+**Deskripsi**: GridView adalah widget yang digunakan untuk menampilkan item dalam bentuk grid.
+**Konteks Penggunaan**: Berguna untuk menampilkan data dalam bentuk grid, seperti galeri gambar atau aplikasi e-commerce dengan produk yang disusun dalam grid.
+
+**3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!**
+
+**Elemen input yang digunakan pada form di tugas kali ini adalah:**
+
+1. **TextFormField untuk Nama Item**
+- **Alasan Penggunaan**: `TextFormField` digunakan untuk mengambil input teks, dalam hal ini untuk nama item. Ini memungkinkan pengguna memasukkan teks dengan keyboard ponsel dan menyediakan validasi menggunakan properti `validator`.
+
+2. **TextFormField untuk Harga**
+- **Alasan Penggunaan**: `TextFormField` juga digunakan untuk mengambil input teks, tetapi pada bagian ini untuk harga item. Pada kasus ini, nilai harga kemudian diubah menjadi tipe data integer untuk keperluan pemrosesan lebih lanjut.
+
+3. **TextFormField untuk Deskripsi**
+Alasan Penggunaan: Seperti sebelumnya, `TextFormField` digunakan untuk mengambil input teks, kali ini untuk deskripsi item. Sama seperti nama item, pengguna dapat memasukkan teks dan validasi dapat diterapkan.
+
+4. **ElevatedButton untuk Tombol Simpan**
+Alasan Penggunaan: `ElevatedButton` digunakan sebagai tombol untuk menyimpan item setelah pengguna mengisi formulir dengan benar. Saat tombol ditekan, validasi akan diperiksa, dan jika valid, data item akan disimpan atau ditampilkan dalam dialog.
+
+Setiap elemen input dipilih berdasarkan kebutuhan formulir dan kemampuannya untuk menyediakan pengalaman pengguna yang baik, validasi input, dan kemudahan integrasi dengan Flutter.
+
+**4. Bagaimana penerapan clean architecture pada aplikasi Flutter?**
+
+**Struktur Proyek**:
+Atur proyek Flutter Anda menjadi modul yang merepresentasikan lapisan-lapisan dari Clean Architecture.
+```bash
+- `lib/`: Kode UI Flutter.
+- `data/`: Logika akses data.
+- `domain/`: Logika bisnis.
+- `presentation/`: Logika tampilan dan UI.
+```
+
+**Lapisan Domain**:
+Berisi definisi model entitas, objek nilai, serta aturan bisnis dan logika.
+
+**Lapisan Data**:
+Di sini, implementasikan repositori dan sumber data untuk berinteraksi dengan lapisan domain. Pastikan lapisan data tetap independen dari lapisan presentasi dan domain.
+
+**Lapisan Presentation**:
+Fokus pada antarmuka pengguna, logika presentasi, dan manajemen state menggunakan pola arsitektur seperti Bloc, Provider, atau MobX.
+
+**Aturan Dependensi**:
+Terapkan aturan dependensi di mana lapisan yang lebih dalam tidak bergantung pada lapisan yang lebih tinggi. Lapisan domain harus mandiri tanpa bergantung pada implementasi teknis dari lapisan data atau presentasi.
+
+**Dependency Injection**:
+Manfaatkan Dependency Injection (DI) untuk menyediakan dependensi ke lapisan tertentu. Contoh framework DI di Flutter termasuk `get_it` atau `provider`.
+
+**Pengujian**:
+Tulis uji unit untuk setiap lapisan secara terpisah. Pastikan uji unit lapisan presentasi tidak bergantung pada infrastruktur atau sumber daya eksternal.
+
+**Penggunaan Repositori**:
+Lapisan presentasi mengakses data melalui repositori yang diimplementasikan di lapisan data. Repositori menyatukan sumber daya data dan menyediakan antarmuka untuk lapisan domain.
+
+**Penanganan Error**:
+Tangani error dan pengecualian secara efektif, terutama di lapisan data dan domain. Kembalikan error yang relevan dan jelas di lapisan presentasi.
+
+**Dependensi Eksternal**:
+Pisahkan dependensi eksternal seperti database, panggilan API, dan plugin Flutter untuk memudahkan pengujian dan penggantian implementasi.
+
+**5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)**
+
+__PERTAMA MENAMBAHKAN DRAWER MENU UNTUK NAVIGASI__
+- Buka proyek yang sebelumnya telah dibuat pada IDE favoritmu.
+- Buat berkas baru di dalam direktori baru widgets dengan nama `left_drawer.dart`. Dan Tambahkan kode dibawah ini
+```
+import 'package:flutter/material.dart';
+import 'package:flutter_project/screens/menu.dart';
+import 'package:flutter_project/screens/shoplist_form.dart';
+
+class LeftDrawer extends StatelessWidget {
+  const LeftDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.indigo,
+            ),
+            child: Column(
+              children: [
+                Text(
+                  'Shopping List',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(10)),
+                Text("Catat seluruh keperluan belanjamu di sini!",
+                    style: TextStyle(
+                    fontSize: 15, // Ukuran font 15
+                    color: Colors.white, // Warna teks putih
+                    fontWeight: FontWeight.normal, // Weight biasa
+                    ),
+                    textAlign: TextAlign.center, // Center alignment
+                ),
+              ],
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.home_outlined),
+            title: const Text('Halaman Utama'),
+            // Bagian redirection ke MyHomePage
+            onTap: () {
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MyHomePage(),
+                  ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.add_shopping_cart),
+            title: const Text('Tambah Item'),
+            // Bagian redirection ke ShopFormPage
+            onTap: () {
+              Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ShopFormPage(),
+              ));
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+Kode diatas saya gunakan untuk membuat drawer menu, kode diatas mencakupi bagian header dari drawer, dan bagian routing ke page lain.
+- Selanjutnya adalah memasukkan drawer ke halaman yang diinginkan, saya menggunakan halaman `menu.dart`.
+```
+// Impor drawer widget
+import 'package:flutter_project/widgets/left_drawer.dart';
+...
+return Scaffold(
+  appBar: AppBar(
+    title: const Text(
+      'Shopping List',
+    ),
+    backgroundColor: Colors.indigo,
+    foregroundColor: Colors.white,
+  ),
+  // Masukkan drawer sebagai parameter nilai drawer dari widget Scaffold
+  drawer: const LeftDrawer(),
+```
+
+__KEDUA MENAMBAHKAN FORM DAN ELEMEN INPUT__
+- Buat berkas baru pada direktori `lib` dengan nama `shoplist_form.dart`, dan tambahkan kode dibawah ke dalam berkas `shoplist_form.dart`.
+```
+import 'package:flutter/material.dart';
+import 'package:flutter_project/widgets/left_drawer.dart';
+
+class ShopFormPage extends StatefulWidget {
+    const ShopFormPage({super.key});
+
+    @override
+    State<ShopFormPage> createState() => _ShopFormPageState();
+}
+
+class _ShopFormPageState extends State<ShopFormPage> {
+  final _formKey = GlobalKey<FormState>();
+  String _name = "";
+  int _price = 0;
+  String _description = "";
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(
+          child: Text(
+            'Form Tambah Item',
+          ),
+        ),
+        backgroundColor: Colors.indigo,
+        foregroundColor: Colors.white,
+      ),
+      drawer: const LeftDrawer(),
+      body: Form(
+        key: _formKey,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Nama Item",
+                    labelText: "Nama Item",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _name = value!;
+                    });
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Nama Item tidak boleh kosong!";
+                    } 
+                    if (value.runtimeType != String) {
+                      return "Nama Item harus berupa string!";
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Harga",
+                    labelText: "Harga",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _price = int.parse(value!);
+                    });
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Harga tidak boleh kosong!";
+                    }
+                    if (int.tryParse(value) == null) {
+                      return "Harga harus berupa angka!";
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: "Deskripsi",
+                    labelText: "Deskripsi",
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5.0),
+                    ),
+                  ),
+                  onChanged: (String? value) {
+                    setState(() {
+                      _description = value!;
+                    });
+                  },
+                  validator: (String? value) {
+                    if (value == null || value.isEmpty) {
+                      return "Deskripsi tidak boleh kosong!";
+                    } 
+                    if (value.runtimeType != String) {
+                      return "Deskripsi harus berupa string!";
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.indigo),
+                    ),
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        _formKey.currentState!.reset(); // Ditempatkan di sini
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: const Text('Produk berhasil tersimpan'),
+                              content: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text('Name: $_name'),
+                                    Text('Amount: $_price'),
+                                    Text('Description: $_description'),
+                                  ],
+                                ),
+                              ),
+                              actions: [
+                                TextButton(
+                                  child: const Text('OK'),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      }
+                    },
+                    child: const Text(
+                      "Save",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ]
+          )
+        ),
+      ),
+    );
+  }
+}
+```
+kode diatas berfungsi dalam membuat page shoplist_form, dimana didalamnya berupa form input, tombol save, dan card untuk barang baru yang ditambah kedalam shopping list.
+
+__KETIGA MENAMBAHKAN FITUR NAVIGASI PADA TOMBOL__
+- Pada widget `ShopItem` di dalam berkas `menu.dart` yang telah kita buat dalam tutorial sebelumnya, kita akan memperbarui kode di atribut `onTap` dari `InkWell` agar dapat mengarahkan pengguna ke route lain. Tambahkan kode tambahan setelah blok `ScaffoldMessenger` yang menampilkan snackbar.
+```
+  // Area responsif terhadap sentuhan
+  onTap: () {
+    // Memunculkan SnackBar ketika diklik
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+          content: Text("Kamu telah menekan tombol ${item.name}!")));
+
+    // Navigate ke route yang sesuai (tergantung jenis tombol)
+    if (item.name == "Tambah Item") {
+      Navigator.push(context,
+      MaterialPageRoute(builder: (context) => const ShopFormPage()));
+    }
+
+  },
+```
+
+__KEEMPAT REFRACTORING FILE__
+- Pastikan ekstensi Flutter terpasang di IDE atau text editor yang digunakan.
+- Buat berkas baru dengan nama shop_card.dart dalam direktori widgets.
+- Pindahkan kode dari widget ShopItem di menu.dart ke dalam berkas widgets/shop_card.dart.
+- Jangan lupa untuk mengimpor halaman shoplist_form.dart ke dalam berkas shop_card.dart, dan mengimpor shop_card.dart ke dalam berkas menu.dart.
+- Buat folder baru bernama screens di direktori lib.
+- Alihkan file menu.dart dan shoplist_form.dart ke dalam folder screens. Pastikan pemindahan file dilakukan melalui IDE atau text editor yang mendukung Flutter extension, bukan melalui file manager konvensional seperti File Explorer atau Finder. Dengan cara ini, IDE atau text editor dapat melakukan refactoring secara otomatis.
+
+__TERAKHIR__
+- Lakukan add, commit dan push untuk memperbarui repositori GitHub.
+```bash
+git add .
+git commit -m "<pesan_commit>"
+git push -u origin <branch_utama>
+```
+</details>
