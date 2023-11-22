@@ -4,7 +4,7 @@
 **NPM:** 2206083514  
 **Kelas:** PBP A
 
-<div style="border: 2px solid black; transform: rotate(-45deg); width: 100px; height: 100px;"></div>
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 <details>
 <summary><strong>Tugas 7</strong></summary>
