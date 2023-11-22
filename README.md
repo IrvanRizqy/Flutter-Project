@@ -798,47 +798,47 @@ Pada kedua file `login.dart` dan `list_product.dart`, terdapat beberapa widget y
 
 __login.dart__
 1. **MaterialApp**: Ini adalah widget utama yang menyediakan beberapa konfigurasi aplikasi, seperti judul dan tema.
-  - Fungsi: Mengatur konfigurasi dasar aplikasi.
+    - Fungsi: Mengatur konfigurasi dasar aplikasi.
 2. **Scaffold**: Ini adalah kerangka dasar halaman yang berisi elemen-elemen dasar seperti AppBar dan body.
-  - Fungsi: Menyediakan struktur dasar untuk tata letak halaman.
+    - Fungsi: Menyediakan struktur dasar untuk tata letak halaman.
 3. **AppBar**: Ini adalah bilah atas halaman yang menampilkan judul.
-  - Fungsi: Menampilkan judul halaman.
+    - Fungsi: Menampilkan judul halaman.
 4. **Container**: Ini adalah wadah yang dapat disesuaikan dengan ukuran dan tata letak tertentu.
-  - Fungsi: Menyediakan padding untuk elemen-elemen di dalamnya.
+    - Fungsi: Menyediakan padding untuk elemen-elemen di dalamnya.
 5. **Column**: Ini adalah widget yang mengatur elemen-elemen anak secara vertikal.
-  - Fungsi: Menyusun elemen-elemen anak secara vertikal di dalam Container.
+    - Fungsi: Menyusun elemen-elemen anak secara vertikal di dalam Container.
 6. **TextField**: Ini adalah input teks yang memungkinkan pengguna memasukkan teks.
-  - Fungsi: Mengambil input teks untuk username dan password.
+    - Fungsi: Mengambil input teks untuk username dan password.
 7. **SizedBox**: Ini adalah kotak berukuran yang dapat disesuaikan.
-  - Fungsi: Menyediakan ruang kosong antara elemen-elemen.
+    - Fungsi: Menyediakan ruang kosong antara elemen-elemen.
 8. **ElevatedButton**: Ini adalah tombol dengan latar belakang yang meninggi ketika ditekan.
-  - Fungsi: Menjalankan aksi login ketika tombol ditekan.
+    - Fungsi: Menjalankan aksi login ketika tombol ditekan.
 9. **SnackBar**: Ini adalah pop-up kecil yang menampilkan pesan.
-  - Fungsi: Menampilkan pesan sambutan atau pesan kesalahan setelah login.
+    - Fungsi: Menampilkan pesan sambutan atau pesan kesalahan setelah login.
 10. **AlertDialog**: Ini adalah dialog yang menampilkan pesan dan tombol aksi.
-  - Fungsi: Menampilkan pesan kesalahan jika login gagal.
+    - Fungsi: Menampilkan pesan kesalahan jika login gagal.
 
 __list_product.dart__
 1. **Scaffold**: Sama seperti pada login.dart, ini adalah kerangka dasar halaman.
-  - Fungsi: Menyediakan struktur dasar untuk tata letak halaman.
+    - Fungsi: Menyediakan struktur dasar untuk tata letak halaman.
 2. **AppBar**: Bilah atas halaman yang menampilkan judul.
-  - Fungsi: Menampilkan judul halaman.
+    - Fungsi: Menampilkan judul halaman.
 3. **Drawer**: Ini adalah menu samping yang dapat digeser dari kiri ke kanan.
-  - Fungsi: Menyediakan navigasi menu samping.
+    - Fungsi: Menyediakan navigasi menu samping.
 4. **FutureBuilder**: Ini adalah widget yang membangun tampilan berdasarkan hasil dari Future.
-  - Fungsi: Menampilkan indikator loading ketika data masih diambil, atau menampilkan daftar produk setelah data diambil.
+    - Fungsi: Menampilkan indikator loading ketika data masih diambil, atau menampilkan daftar produk setelah data diambil.
 5. **Center**: Ini adalah widget yang mengatur elemen anaknya di tengah halaman.
-  - Fungsi: Menempatkan elemen-elemen anak di tengah halaman jika data belum tersedia.
+    - Fungsi: Menempatkan elemen-elemen anak di tengah halaman jika data belum tersedia.
 6. **ListView.builder**: Ini adalah widget yang membangun daftar dengan elemen-elemen yang dapat di-scroll.
-  - Fungsi: Menampilkan daftar produk yang diambil dari server.
+    - Fungsi: Menampilkan daftar produk yang diambil dari server.
 7. **Container**: Ini adalah wadah yang dapat disesuaikan dengan ukuran dan tata letak tertentu.
-  - Fungsi: Memberikan margin dan padding pada elemen anaknya.
+    - Fungsi: Memberikan margin dan padding pada elemen anaknya.
 8. **Column**: Ini adalah widget yang mengatur elemen anak secara vertikal.
-  - Fungsi: Menyusun elemen-elemen anak secara vertikal di dalam Container.
+    - Fungsi: Menyusun elemen-elemen anak secara vertikal di dalam Container.
 9. **Text**: Ini adalah widget untuk menampilkan teks.
-  - Fungsi: Menampilkan informasi produk seperti nama, harga, dan deskripsi.
+    - Fungsi: Menampilkan informasi produk seperti nama, harga, dan deskripsi.
 10. **CircularProgressIndicator**: Ini adalah indikator loading berbentuk lingkaran.
-  - Fungsi: Menampilkan indikator loading ketika data sedang diambil.
+    - Fungsi: Menampilkan indikator loading ketika data sedang diambil.
 
 **6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**
 
