@@ -309,44 +309,44 @@ Dalam contoh di atas, setelah pengguna menekan tombol untuk pindah ke layar keti
 **2. Jelaskan masing-masing layout widget pada Flutter dan konteks penggunaannya masing-masing!**
 
 1. **Container**
-- **Deskripsi**: Container adalah widget yang dapat digunakan untuk mengatur tata letak dan dekorasi dari widget di dalamnya.
-- **Konteks Penggunaan**: Cocok digunakan untuk mengelola tata letak sederhana, seperti mengatur padding, margin, dan dekorasi untuk widget di dalamnya.
+    - **Deskripsi**: Container adalah widget yang dapat digunakan untuk mengatur tata letak dan dekorasi dari widget di dalamnya.
+    - **Konteks Penggunaan**: Cocok digunakan untuk mengelola tata letak sederhana, seperti mengatur padding, margin, dan dekorasi untuk widget di dalamnya.
 
 2. **Row dan Column**
-- **Deskripsi**: Row dan Column digunakan untuk mengatur widget secara horizontal (Row) atau vertikal (Column).
-- **Konteks Penggunaan**: Berguna untuk menyusun widget secara berurutan, baik secara horizontal maupun vertikal.
+    - **Deskripsi**: Row dan Column digunakan untuk mengatur widget secara horizontal (Row) atau vertikal (Column).
+    - **Konteks Penggunaan**: Berguna untuk menyusun widget secara berurutan, baik secara horizontal maupun vertikal.
 
 3. **ListView**
-- **Deskripsi**: ListView adalah widget yang digunakan untuk menampilkan daftar item secara terus menerus atau dalam bentuk daftar gulir.
-- **Konteks Penggunaan**: Cocok untuk menampilkan daftar item, seperti daftar kontak, berita, atau item dalam aplikasi.
+    - **Deskripsi**: ListView adalah widget yang digunakan untuk menampilkan daftar item secara terus menerus atau dalam bentuk daftar gulir.
+    - **Konteks Penggunaan**: Cocok untuk menampilkan daftar item, seperti daftar kontak, berita, atau item dalam aplikasi.
 
 4. **Stack**
-- **Deskripsi**: Stack adalah widget yang digunakan untuk menempatkan widget di atas satu sama lain.
-- **Konteks Penggunaan**: Berguna ketika Anda ingin menumpuk widget, seperti menempatkan teks di atas gambar atau menyusun elemen-elemen tumpuk lainnya.
+    - **Deskripsi**: Stack adalah widget yang digunakan untuk menempatkan widget di atas satu sama lain.
+    - **Konteks Penggunaan**: Berguna ketika Anda ingin menumpuk widget, seperti menempatkan teks di atas gambar atau menyusun elemen-elemen tumpuk lainnya.
 
 5. **Expanded dan Flexible**
-- **Deskripsi**: Expanded dan Flexible digunakan untuk memberikan widget ruang tambahan sesuai dengan kebutuhan.
-- **Konteks Penggunaan**: Cocok digunakan dalam Row atau Column untuk memberikan proporsi ruang yang berbeda kepada widget di dalamnya.
+    - **Deskripsi**: Expanded dan Flexible digunakan untuk memberikan widget ruang tambahan sesuai dengan kebutuhan.
+    - **Konteks Penggunaan**: Cocok digunakan dalam Row atau Column untuk memberikan proporsi ruang yang berbeda kepada widget di dalamnya.
 
 6. **GridView**
-- **Deskripsi**: GridView adalah widget yang digunakan untuk menampilkan item dalam bentuk grid.
-- **Konteks Penggunaan**: Berguna untuk menampilkan data dalam bentuk grid, seperti galeri gambar atau aplikasi e-commerce dengan produk yang disusun dalam grid.
+    - **Deskripsi**: GridView adalah widget yang digunakan untuk menampilkan item dalam bentuk grid.
+    - **Konteks Penggunaan**: Berguna untuk menampilkan data dalam bentuk grid, seperti galeri gambar atau aplikasi e-commerce dengan produk yang disusun dalam grid.
 
 **3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!**
 
 **Elemen input yang digunakan pada form di tugas kali ini adalah:**
 
 1. **TextFormField untuk Nama Item**
-- **Alasan Penggunaan**: `TextFormField` digunakan untuk mengambil input teks, dalam hal ini untuk nama item. Ini memungkinkan pengguna memasukkan teks dengan keyboard ponsel dan menyediakan validasi menggunakan properti `validator`.
+    - **Alasan Penggunaan**: `TextFormField` digunakan untuk mengambil input teks, dalam hal ini untuk nama item. Ini memungkinkan pengguna memasukkan teks dengan keyboard ponsel dan menyediakan validasi menggunakan properti `validator`.
 
 2. **TextFormField untuk Harga**
-- **Alasan Penggunaan**: `TextFormField` juga digunakan untuk mengambil input teks, tetapi pada bagian ini untuk harga item. Pada kasus ini, nilai harga kemudian diubah menjadi tipe data integer untuk keperluan pemrosesan lebih lanjut.
+    - **Alasan Penggunaan**: `TextFormField` juga digunakan untuk mengambil input teks, tetapi pada bagian ini untuk harga item. Pada kasus ini, nilai harga kemudian diubah menjadi tipe data integer untuk keperluan pemrosesan lebih lanjut.
 
 3. **TextFormField untuk Deskripsi**
-- Alasan Penggunaan: Seperti sebelumnya, `TextFormField` digunakan untuk mengambil input teks, kali ini untuk deskripsi item. Sama seperti nama item, pengguna dapat memasukkan teks dan validasi dapat diterapkan.
+    - Alasan Penggunaan: Seperti sebelumnya, `TextFormField` digunakan untuk mengambil input teks, kali ini untuk deskripsi item. Sama seperti nama item, pengguna dapat memasukkan teks dan validasi dapat diterapkan.
 
 4. **ElevatedButton untuk Tombol Simpan**
-- Alasan Penggunaan: `ElevatedButton` digunakan sebagai tombol untuk menyimpan item setelah pengguna mengisi formulir dengan benar. Saat tombol ditekan, validasi akan diperiksa, dan jika valid, data item akan disimpan atau ditampilkan dalam dialog.
+    - Alasan Penggunaan: `ElevatedButton` digunakan sebagai tombol untuk menyimpan item setelah pengguna mengisi formulir dengan benar. Saat tombol ditekan, validasi akan diperiksa, dan jika valid, data item akan disimpan atau ditampilkan dalam dialog.
 
 Setiap elemen input dipilih berdasarkan kebutuhan formulir dan kemampuannya untuk menyediakan pengalaman pengguna yang baik, validasi input, dan kemudahan integrasi dengan Flutter.
 
