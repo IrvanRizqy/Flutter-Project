@@ -4,6 +4,8 @@
 **NPM:** 2206083514  
 **Kelas:** PBP A
 
+<div style="border: 2px solid black; transform: rotate(-45deg); width: 100px; height: 100px;"></div>
+
 <details>
 <summary><strong>Tugas 7</strong></summary>
 
@@ -229,8 +231,8 @@ Di dalam Flutter, Navigator.push() dan Navigator.pushReplacement() merupakan dua
 1. **Navigator.push()**:
 - Metode ini digunakan untuk menambahkan layar baru ke dalam tumpukan (stack) navigasi.
 - Setelah menggunakan Navigator.push(), pengguna dapat kembali ke layar sebelumnya dengan menekan tombol "Back" atau menggunakan fungsi `Navigator.pop()`.
-Contoh penggunaan `Navigator.push()`:
 
+Contoh penggunaan `Navigator.push()`:
 ```
 // Import modul flutter
 import 'package:flutter/material.dart';
@@ -280,8 +282,8 @@ class SecondScreen extends StatelessWidget {
 
 - Metode ini juga digunakan untuk menambahkan layar baru ke dalam tumpukan navigasi.
 - Namun, perbedaannya adalah bahwa setelah menggunakan Navigator.pushReplacement(), layar sebelumnya dihapus dari tumpukan sehingga pengguna tidak dapat kembali ke layar tersebut.
-Contoh penggunaan `Navigator.pushReplacement()`:
 
+Contoh penggunaan `Navigator.pushReplacement()`:
 ```
 // Fungsi untuk membuat layar baru dan menggantikan layar saat ini
 void navigateToThirdScreen(BuildContext context) {
@@ -323,12 +325,12 @@ Dalam contoh di atas, setelah pengguna menekan tombol untuk pindah ke layar keti
 - **Konteks Penggunaan**: Berguna ketika Anda ingin menumpuk widget, seperti menempatkan teks di atas gambar atau menyusun elemen-elemen tumpuk lainnya.
 
 5. **Expanded dan Flexible**
-**Deskripsi**: Expanded dan Flexible digunakan untuk memberikan widget ruang tambahan sesuai dengan kebutuhan.
-**Konteks Penggunaan**: Cocok digunakan dalam Row atau Column untuk memberikan proporsi ruang yang berbeda kepada widget di dalamnya.
+- **Deskripsi**: Expanded dan Flexible digunakan untuk memberikan widget ruang tambahan sesuai dengan kebutuhan.
+- **Konteks Penggunaan**: Cocok digunakan dalam Row atau Column untuk memberikan proporsi ruang yang berbeda kepada widget di dalamnya.
 
 6. **GridView**
-**Deskripsi**: GridView adalah widget yang digunakan untuk menampilkan item dalam bentuk grid.
-**Konteks Penggunaan**: Berguna untuk menampilkan data dalam bentuk grid, seperti galeri gambar atau aplikasi e-commerce dengan produk yang disusun dalam grid.
+- **Deskripsi**: GridView adalah widget yang digunakan untuk menampilkan item dalam bentuk grid.
+- **Konteks Penggunaan**: Berguna untuk menampilkan data dalam bentuk grid, seperti galeri gambar atau aplikasi e-commerce dengan produk yang disusun dalam grid.
 
 **3. Sebutkan apa saja elemen input pada form yang kamu pakai pada tugas kali ini dan jelaskan mengapa kamu menggunakan elemen input tersebut!**
 
@@ -341,10 +343,10 @@ Dalam contoh di atas, setelah pengguna menekan tombol untuk pindah ke layar keti
 - **Alasan Penggunaan**: `TextFormField` juga digunakan untuk mengambil input teks, tetapi pada bagian ini untuk harga item. Pada kasus ini, nilai harga kemudian diubah menjadi tipe data integer untuk keperluan pemrosesan lebih lanjut.
 
 3. **TextFormField untuk Deskripsi**
-Alasan Penggunaan: Seperti sebelumnya, `TextFormField` digunakan untuk mengambil input teks, kali ini untuk deskripsi item. Sama seperti nama item, pengguna dapat memasukkan teks dan validasi dapat diterapkan.
+- Alasan Penggunaan: Seperti sebelumnya, `TextFormField` digunakan untuk mengambil input teks, kali ini untuk deskripsi item. Sama seperti nama item, pengguna dapat memasukkan teks dan validasi dapat diterapkan.
 
 4. **ElevatedButton untuk Tombol Simpan**
-Alasan Penggunaan: `ElevatedButton` digunakan sebagai tombol untuk menyimpan item setelah pengguna mengisi formulir dengan benar. Saat tombol ditekan, validasi akan diperiksa, dan jika valid, data item akan disimpan atau ditampilkan dalam dialog.
+- Alasan Penggunaan: `ElevatedButton` digunakan sebagai tombol untuk menyimpan item setelah pengguna mengisi formulir dengan benar. Saat tombol ditekan, validasi akan diperiksa, dan jika valid, data item akan disimpan atau ditampilkan dalam dialog.
 
 Setiap elemen input dipilih berdasarkan kebutuhan formulir dan kemampuannya untuk menyediakan pengalaman pengguna yang baik, validasi input, dan kemudahan integrasi dengan Flutter.
 
@@ -353,10 +355,10 @@ Setiap elemen input dipilih berdasarkan kebutuhan formulir dan kemampuannya untu
 **Struktur Proyek**:
 Atur proyek Flutter Anda menjadi modul yang merepresentasikan lapisan-lapisan dari Clean Architecture.
 ```bash
-- `lib/`: Kode UI Flutter.
-- `data/`: Logika akses data.
-- `domain/`: Logika bisnis.
-- `presentation/`: Logika tampilan dan UI.
+`lib/`: Kode UI Flutter.
+`data/`: Logika akses data.
+`domain/`: Logika bisnis.
+`presentation/`: Logika tampilan dan UI.
 ```
 
 **Lapisan Domain**:
@@ -687,4 +689,159 @@ git add .
 git commit -m "<pesan_commit>"
 git push -u origin <branch_utama>
 ```
+</details>
+
+
+<details>
+<summary><strong>Tugas 9</strong></summary>
+
+**1. Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?**
+
+Tentu saja, Anda dapat mengambil data JSON tanpa membuat model terlebih dahulu. Namun, membuat model terlebih dahulu akan memudahkan Anda dalam membaca dan mengidentifikasi bug. Hal ini karena model dapat membantu Anda memahami struktur data dan memastikan bahwa data yang diambil sesuai dengan struktur tersebut. Selain itu, model juga dapat membantu Anda dalam melakukan validasi data dan memastikan bahwa data yang diambil memiliki tipe data yang benar.
+
+**2. Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.**
+
+`CookieRequest` adalah fungsi yang digunakan untuk mengirim permintaan HTTP dengan cookie di Flutter. Anda dapat menggunakan paket http dan mengatur header cookie dalam permintaan untuk mengirim cookie. Berikut adalah contoh bagaimana Anda dapat membuat permintaan GET dan mengirim cookie di Flutter:
+```
+import 'package:http/http.dart' as http;
+
+Future<void> main() async {
+  final response = await http.get(
+    Uri.parse('https://example.com/'),
+    headers: <String, String>{
+      'cookie': 'name=value; name2=value2'
+    },
+  );
+  print(response.body);
+}
+```
+Instance `CookieRequest` perlu dibagikan ke semua komponen di aplikasi Flutter karena instance ini menyimpan informasi cookie yang diperlukan untuk mengirim permintaan HTTP dengan cookie. Dengan membagikan instance ini ke semua komponen, Anda dapat memastikan bahwa setiap permintaan HTTP yang dikirim oleh aplikasi menggunakan cookie yang sama. Ini sangat penting jika Anda ingin memastikan bahwa pengguna tetap masuk ke aplikasi Anda dan tidak perlu masuk ulang setiap kali mereka membuka aplikasi.
+
+**3. Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.**
+
+Mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter adalah sebagai berikut:
+- Pertama, Anda perlu membuat sebuah model yang dapat merepresentasikan struktur data JSON yang ingin Anda ambil. Model ini harus memiliki konstruktor yang sesuai dengan parameter yang ada di JSON, dan juga harus memiliki metode untuk mengembalikan objek dari JSON. Anda dapat menggunakan paket `json_annotation` untuk mendukung fitur ini.
+- Kedua, Anda perlu membuat sebuah fungsi HTTP yang dapat mengirim permintaan GET ke URL yang menyediakan data JSON. Anda dapat menggunakan paket http dan mengatur header cookie dalam permintaan untuk mengirim cookie. Anda juga perlu menangani respons dari server dengan menggunakan metode `jsonDecode` untuk mengubah data JSON menjadi objek model.
+- Ketiga, Anda perlu membuat sebuah widget yang dapat menampilkan data model tersebut dengan cara yang sesuai dengan kebutuhan Anda. Misalnya, jika Anda ingin menampilkan data dalam bentuk tabel, Anda dapat menggunakan widget `Table`. Jika Anda ingin menampilkan data dalam bentuk grafik, Anda dapat menggunakan widget `Chart`. Jika Anda ingin menampilkan data dalam bentuk teks, Anda dapat menggunakan widget `Text`.
+
+Berikut adalah contoh kode untuk melakukan pengambilan data dari JSON hingga dapat ditampilkan pada Flutter:
+```
+import 'package:http/http.dart' as http;
+import 'package:json_annotation/json_annotation.dart';
+
+// Membuat model untuk menyimpan data JSON
+class DataModel {
+  final String name;
+  final int age;
+
+  DataModel({required this.name, required this.age});
+
+  // Membuat konstruktor dari model
+  factory DataModel.fromJson(Map<String, dynamic> json) {
+    return DataModel(
+      name: json['name'],
+      age: json['age'],
+    );
+  }
+}
+
+// Membuat fungsi HTTP untuk mengambil data JSON
+Future<DataModel> getDataFromJson(String url) async {
+  // Mengirim permintaan GET dengan header cookie
+  final response = await http.get(
+    Uri.parse(url),
+    headers: {'cookie': 'name=value; name2=value2'},
+  );
+
+  // Mengubah respons menjadi objek model
+  final data = jsonDecode(response.body);
+
+  // Mengembalikan objek model
+  return DataModel.fromJson(data);
+}
+
+// Membuat widget untuk menampilkan data model
+class DataWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // Mendapatkan data dari URL
+    final url = 'https://example.com/data.json';
+    final data = getDataFromJson(url);
+
+    // Menampilkan data dalam bentuk tabel
+    return Table(
+      children: [
+        Text(data.name),
+        Text(data.age.toString()),
+      ],
+    );
+  }
+}
+```
+
+**4. Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.**
+
+Untuk melakukan autentikasi dari input data akun pada Flutter ke Django, Anda dapat menggunakan JSON Web Token (JWT) untuk mengamankan permintaan HTTP. Berikut adalah mekanisme autentikasi yang dapat Anda gunakan:
+
+1. Pengguna memasukkan data akun mereka pada aplikasi Flutter.
+2. Aplikasi Flutter mengirim permintaan HTTP ke server Django dengan data akun pengguna.
+3. Server Django memeriksa data akun pengguna dan menghasilkan token JWT.
+4. Server Django mengirim token JWT kembali ke aplikasi Flutter.
+5. Aplikasi Flutter menyimpan token JWT dan menggunakannya untuk mengamankan permintaan HTTP selanjutnya.
+6. Server Django memeriksa token JWT pada setiap permintaan HTTP dan memberikan akses ke data yang sesuai.
+
+Untuk membagikan instance CookieRequest ke semua komponen di aplikasi Flutter, Anda dapat menggunakan Provider atau InheritedWidget. Dengan menggunakan salah satu dari kedua opsi ini, Anda dapat memastikan bahwa setiap komponen di aplikasi menggunakan instance yang sama dan bahwa data cookie yang diperlukan untuk mengirim permintaan HTTP dengan cookie tetap sama.
+
+**5. Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.**
+
+Pada kedua file `login.dart` dan `list_product.dart`, terdapat beberapa widget yang digunakan. Berikut adalah penjelasan singkat mengenai setiap widget yang digunakan:
+
+__login.dart__
+1. **MaterialApp**: Ini adalah widget utama yang menyediakan beberapa konfigurasi aplikasi, seperti judul dan tema.
+  - Fungsi: Mengatur konfigurasi dasar aplikasi.
+2. **Scaffold**: Ini adalah kerangka dasar halaman yang berisi elemen-elemen dasar seperti AppBar dan body.
+  - Fungsi: Menyediakan struktur dasar untuk tata letak halaman.
+3. **AppBar**: Ini adalah bilah atas halaman yang menampilkan judul.
+  - Fungsi: Menampilkan judul halaman.
+4. **Container**: Ini adalah wadah yang dapat disesuaikan dengan ukuran dan tata letak tertentu.
+  - Fungsi: Menyediakan padding untuk elemen-elemen di dalamnya.
+5. **Column**: Ini adalah widget yang mengatur elemen-elemen anak secara vertikal.
+  - Fungsi: Menyusun elemen-elemen anak secara vertikal di dalam Container.
+6. **TextField**: Ini adalah input teks yang memungkinkan pengguna memasukkan teks.
+  - Fungsi: Mengambil input teks untuk username dan password.
+7. **SizedBox**: Ini adalah kotak berukuran yang dapat disesuaikan.
+  - Fungsi: Menyediakan ruang kosong antara elemen-elemen.
+8. **ElevatedButton**: Ini adalah tombol dengan latar belakang yang meninggi ketika ditekan.
+  - Fungsi: Menjalankan aksi login ketika tombol ditekan.
+9. **SnackBar**: Ini adalah pop-up kecil yang menampilkan pesan.
+  - Fungsi: Menampilkan pesan sambutan atau pesan kesalahan setelah login.
+10. **AlertDialog**: Ini adalah dialog yang menampilkan pesan dan tombol aksi.
+  - Fungsi: Menampilkan pesan kesalahan jika login gagal.
+
+__list_product.dart__
+1. **Scaffold**: Sama seperti pada login.dart, ini adalah kerangka dasar halaman.
+  - Fungsi: Menyediakan struktur dasar untuk tata letak halaman.
+2. **AppBar**: Bilah atas halaman yang menampilkan judul.
+  - Fungsi: Menampilkan judul halaman.
+3. **Drawer**: Ini adalah menu samping yang dapat digeser dari kiri ke kanan.
+  - Fungsi: Menyediakan navigasi menu samping.
+4. **FutureBuilder**: Ini adalah widget yang membangun tampilan berdasarkan hasil dari Future.
+  - Fungsi: Menampilkan indikator loading ketika data masih diambil, atau menampilkan daftar produk setelah data diambil.
+5. **Center**: Ini adalah widget yang mengatur elemen anaknya di tengah halaman.
+  - Fungsi: Menempatkan elemen-elemen anak di tengah halaman jika data belum tersedia.
+6. **ListView.builder**: Ini adalah widget yang membangun daftar dengan elemen-elemen yang dapat di-scroll.
+  - Fungsi: Menampilkan daftar produk yang diambil dari server.
+7. **Container**: Ini adalah wadah yang dapat disesuaikan dengan ukuran dan tata letak tertentu.
+  - Fungsi: Memberikan margin dan padding pada elemen anaknya.
+8. **Column**: Ini adalah widget yang mengatur elemen anak secara vertikal.
+  - Fungsi: Menyusun elemen-elemen anak secara vertikal di dalam Container.
+9. **Text**: Ini adalah widget untuk menampilkan teks.
+  - Fungsi: Menampilkan informasi produk seperti nama, harga, dan deskripsi.
+10. **CircularProgressIndicator**: Ini adalah indikator loading berbentuk lingkaran.
+  - Fungsi: Menampilkan indikator loading ketika data sedang diambil.
+
+**6. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).**
+
+
+
 </details>
